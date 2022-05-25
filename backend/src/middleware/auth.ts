@@ -20,7 +20,7 @@ exports.requireLogin = (req: IUserRequest, res: Response, next: NextFunction) =>
       // console.log({token});
       // Verify token
       const decode: Decode = jwt.verify(token, process.env.JWT_SECRET);
-      console.log({decode});
+      // console.log({decode});
       // Attach token with request
       req.user = decode;
       // console.log("req.user:", req.user);
