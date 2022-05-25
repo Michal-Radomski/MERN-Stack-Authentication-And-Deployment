@@ -18,8 +18,8 @@ mongoose
   .catch((error: string) => console.log({error}));
 
 // Routes
-// app.use("/auth", require("./routes/index"));
-app.use(router);
+// app.use(router);
+app.use("/auth", require("./routes/index"));
 
 const PORT: number = 5000;
 
