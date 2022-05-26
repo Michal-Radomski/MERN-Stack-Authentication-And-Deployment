@@ -22,7 +22,7 @@ const Login = (props: {history: string[]}): JSX.Element => {
     error: null,
   });
 
-  console.log({data});
+  // console.log({data});
 
   const {email, password, error} = data;
 
@@ -35,8 +35,8 @@ const Login = (props: {history: string[]}): JSX.Element => {
     try {
       setData({...data, error: null});
       const res = await axios.post(
-        "/api/auth/login",
-        {email, password},
+        "/auth/login",
+        {email: email, password: password},
         {
           headers: {
             "Content-Type": "application/json",

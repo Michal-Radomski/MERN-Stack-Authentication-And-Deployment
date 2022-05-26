@@ -16,7 +16,7 @@ const Register = (props: {history: string[]}): JSX.Element => {
     error: null,
   });
 
-  console.log({data});
+  // console.log({data});
 
   const {name, email, password, error} = data;
 
@@ -29,8 +29,8 @@ const Register = (props: {history: string[]}): JSX.Element => {
     try {
       setData({...data, error: null});
       await axios.post(
-        "/api/auth/register",
-        {name, email, password},
+        "/auth/register",
+        {name: name, email: email, password: password},
         {
           headers: {
             "Content-Type": "application/json",
