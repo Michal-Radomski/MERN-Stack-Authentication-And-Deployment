@@ -11,15 +11,24 @@ export interface IUserRequest extends Request {
   user: Decode;
 }
 
-// Authenticate user middleware
 exports.requireLogin = (req: IUserRequest, res: Response, next: NextFunction) => {
   try {
-    if (req.headers.authorization) {
+    if (!req.headers.authorization) {
+      return res.status(400).json({message: "Unauthorized"});
+    } else if (req.headers.authorization) {
+      // console.log("req.headers.authorization:", req.headers.authorization);
       // Get token from header
       const token = req.headers.authorization.split(" ")[1];
+      if (token === "null") {
+        // return res.status(400).json({message: "Unauthorized"});
+        return null;
+      }
       // console.log({token});
       // Verify token
       const decode: Decode = jwt.verify(token, process.env.JWT_SECRET);
+      if (!decode) {
+        return res.status(400).json({message: "Unauthorized"});
+      }
       // console.log({decode});
       // Attach token with request
       req.user = decode;

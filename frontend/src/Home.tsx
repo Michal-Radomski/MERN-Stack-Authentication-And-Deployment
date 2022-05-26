@@ -19,12 +19,17 @@ const Home = (props: RouteComponentProps): JSX.Element => {
   // console.log({user});
 
   const getUser = async () => {
-    const res = await axios.get("/auth", {
-      headers: {
-        Authorization: `Bearer ${localStorage.getItem("token")}`,
-      },
-    });
-    setUser(res.data);
+    try {
+      const res = await axios.get("/auth", {
+        headers: {
+          Authorization: `Bearer ${localStorage.getItem("token")}`,
+        },
+      });
+      await console.log({res});
+      await setUser(res.data);
+    } catch (error) {
+      console.log(error);
+    }
   };
   React.useEffect(() => {
     getUser();
