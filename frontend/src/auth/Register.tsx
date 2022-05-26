@@ -80,7 +80,7 @@ const Register = (props: RouteComponentProps): JSX.Element => {
               </div>
             </form>
             <p className="mt-3 text-center">
-              Already registered as user? <Link to="/">Login</Link>
+              Already registered as user? <Link to="/login">Login</Link>
             </p>
           </div>
         </div>

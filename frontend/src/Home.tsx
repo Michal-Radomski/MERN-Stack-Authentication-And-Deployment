@@ -31,6 +31,7 @@ const Home = (props: RouteComponentProps): JSX.Element => {
   }, []);
 
   const logout = () => {
+    console.log("logged out");
     localStorage.removeItem("token");
     props.history.push("/login");
   };

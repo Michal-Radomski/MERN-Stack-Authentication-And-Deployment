@@ -1,6 +1,6 @@
 import axios from "axios";
 import React from "react";
-import {RouteComponentProps} from "react-router-dom";
+import {Link, RouteComponentProps} from "react-router-dom";
 
 export interface LOGIN {
   email: string;
@@ -53,9 +53,19 @@ const Login = (props: RouteComponentProps): JSX.Element => {
   };
 
   return (
-    <div className="row">
-      <div className="col-sm-2" />
-      <div className="col-sm-8">
+    <div
+      className="row"
+      style={{
+        margin: 0,
+        position: "absolute",
+        top: "10%",
+        left: "50%",
+        transform: "translate(-50%, 0)",
+        minWidth: "800px",
+        backgroundColor: "lightgrey",
+      }}
+    >
+      <div className="col-sm-12" style={{paddingBottom: "15px"}}>
         <h4 className="text-muted text-center mb-5">Log into your account</h4>
         <div className="card p-5 shadow">
           <form>
@@ -74,9 +84,11 @@ const Login = (props: RouteComponentProps): JSX.Element => {
               </button>
             </div>
           </form>
+          <p className="mt-3 text-center">
+            Not a user? <Link to="/register">Register</Link>
+          </p>
         </div>
       </div>
-      <div className="col-sm-2" />
     </div>
   );
 };

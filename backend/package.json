@@ -6,7 +6,8 @@
   "scripts": {
     "start": "ts-node src/index.ts",
     "server": "nodemon src/index.ts",
-    "dev": "concurrently \"npm run server\" \"cd ../frontend && npm run start\""
+    "dev": "concurrently \"npm run server\" \"cd ../frontend && npm run start\"",
+    "heroku-postbuild": "npm_config_production=false npm install --prefix frontend && npm run build --prefix frontend"
   },
   "author": "",
   "license": "MIT",
