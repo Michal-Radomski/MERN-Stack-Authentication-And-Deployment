@@ -1,6 +1,6 @@
 import React from "react";
 import axios from "axios";
-import {Link} from "react-router-dom";
+import {Link, RouteComponentProps} from "react-router-dom";
 
 import {LOGIN, ERROR} from "./Login";
 
@@ -8,7 +8,7 @@ interface REGISTER extends LOGIN {
   name: string;
 }
 
-const Register = (props: {history: string[]}): JSX.Element => {
+const Register = (props: RouteComponentProps): JSX.Element => {
   const [data, setData] = React.useState<REGISTER>({
     name: "",
     email: "",

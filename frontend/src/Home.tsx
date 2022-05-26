@@ -1,5 +1,6 @@
 import React from "react";
 import axios from "axios";
+import {RouteComponentProps} from "react-router-dom";
 
 interface USER {
   _id: string;
@@ -9,14 +10,16 @@ interface USER {
   save(): void;
 }
 
-const Home = (props: {history: string[]}): JSX.Element => {
+const Home = (props: RouteComponentProps): JSX.Element => {
   // console.log({props});
+  // const {history} = props;
+  // console.log({history});
   const [user, setUser] = React.useState<USER | null>(null);
 
-  console.log({user});
+  // console.log({user});
 
   const getUser = async () => {
-    const res = await axios.get("/api/auth", {
+    const res = await axios.get("/auth", {
       headers: {
         Authorization: `Bearer ${localStorage.getItem("token")}`,
       },

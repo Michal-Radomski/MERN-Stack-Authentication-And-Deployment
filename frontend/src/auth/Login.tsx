@@ -1,5 +1,6 @@
 import axios from "axios";
 import React from "react";
+import {RouteComponentProps} from "react-router-dom";
 
 export interface LOGIN {
   email: string;
@@ -15,7 +16,7 @@ export interface ERROR extends Error {
   };
 }
 
-const Login = (props: {history: string[]}): JSX.Element => {
+const Login = (props: RouteComponentProps): JSX.Element => {
   const [data, setData] = React.useState<LOGIN>({
     email: "",
     password: "",
