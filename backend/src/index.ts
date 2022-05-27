@@ -27,6 +27,7 @@ mongoose
 app.use("/auth", router);
 
 // Serve static assets (build folder) if in production
+
 if (process.env.NODE_ENV === "production") {
   // Set static folder
   app.use(express.static("frontend/build"));
@@ -36,6 +37,15 @@ if (process.env.NODE_ENV === "production") {
   });
 }
 
-const PORT: number = 5000;
+//* Change it before deploying on Heroku.com to this (index.js - no types!)
+// app.use(express.static(path.join(__dirname, "../react_build")));
+// app.get("/*", (_req, res) => {
+//   res.sendFile(path.join(__dirname, "../react_build", "index.html"));
+// });
+
+// console.log({__dirname});
+// console.log("process.cwd():", process.cwd());
+
+const PORT = process.env.PORT || 5000;
 
 app.listen(PORT, () => console.log(`Server started on port ${PORT}`));
